@@ -1,0 +1,14 @@
+C:\Users\anahi\OneDrive\Documentos\Digitalers\Clase33\bin\Debug\net8.0\Clase33.exe
+C:\Users\anahi\OneDrive\Documentos\Digitalers\Clase33\bin\Debug\net8.0\Clase33.deps.json
+C:\Users\anahi\OneDrive\Documentos\Digitalers\Clase33\bin\Debug\net8.0\Clase33.runtimeconfig.json
+C:\Users\anahi\OneDrive\Documentos\Digitalers\Clase33\bin\Debug\net8.0\Clase33.dll
+C:\Users\anahi\OneDrive\Documentos\Digitalers\Clase33\bin\Debug\net8.0\Clase33.pdb
+C:\Users\anahi\OneDrive\Documentos\Digitalers\Clase33\obj\Debug\net8.0\Clase33.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anahi\OneDrive\Documentos\Digitalers\Clase33\obj\Debug\net8.0\Clase33.AssemblyInfoInputs.cache
+C:\Users\anahi\OneDrive\Documentos\Digitalers\Clase33\obj\Debug\net8.0\Clase33.AssemblyInfo.cs
+C:\Users\anahi\OneDrive\Documentos\Digitalers\Clase33\obj\Debug\net8.0\Clase33.csproj.CoreCompileInputs.cache
+C:\Users\anahi\OneDrive\Documentos\Digitalers\Clase33\obj\Debug\net8.0\Clase33.dll
+C:\Users\anahi\OneDrive\Documentos\Digitalers\Clase33\obj\Debug\net8.0\refint\Clase33.dll
+C:\Users\anahi\OneDrive\Documentos\Digitalers\Clase33\obj\Debug\net8.0\Clase33.pdb
+C:\Users\anahi\OneDrive\Documentos\Digitalers\Clase33\obj\Debug\net8.0\Clase33.genruntimeconfig.cache
+C:\Users\anahi\OneDrive\Documentos\Digitalers\Clase33\obj\Debug\net8.0\ref\Clase33.dll
