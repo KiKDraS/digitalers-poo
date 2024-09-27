@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>JavaScript Avanzado</title>
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="d-flex" id="wrapper">
+      <!-- Sidebar-->
+      <div class="border-end bg-white" id="sidebar-wrapper">
+        <span class="sidebar-heading border-bottom bg-light"
+          >Contacto:
+          <a href="mailto:anahiforesi.educacionit@gmail.com"
+            >Anahí Foresi</a
+          ></span
+        >
+        <ul class="list-group list-group-flush">
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            href="index.html"
+            >Paradigma Funcional</a
+          >
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            href="reactiva.html"
+            >Programación Reactiva</a
+          >
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            href="ejercicios.html"
+            >Ejercicios</a
+          >
+        </ul>
+      </div>
+      <!-- Page content wrapper-->
+      <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        <nav
+          id="barra"
+          class="navbar navbar-expand-lg navbar-light bg-light border-bottom"
+        >
+          <div class="container-fluid">
+            <button class="btn btn-primary" id="sidebarToggle">Temas</button>
+            <h1>Clase 08</h1>
+          </div>
+        </nav>
+        <!-- Page content-->
+        <div class="container-fluid">
+          <h2 class="mt-4">Tipos de Funciones</h2>
+          <h3 class="my-4">Funciones de Primera Clase</h3>
+          <p>
+            Las funciones de primera clase son funciones que pueden asignarse
+            como valores a variables, devolverse desde otras funciones y pasarse
+            como argumentos a otras funciones.
+            <br />
+            En JavaScript, todas las funciones son funciones de primera clase.
+            Eso significa que pueden tratarse como cualquier otra variable.
+          </p>
+          <h3 class="my-4">Funciones Callback</h3>
+          <p>
+            Las funciones callback son funciones que escribimos como argumentos
+            en otras funciones. No podemos invocar funciones callback. Se
+            invocan cuando se llama a la función principal en la que se pasaron
+            como argumentos.
+          </p>
+          <div class="container">
+            <div class="row row-cols-1">
+              <div class="col mb-3">
+                <img
+                  src="assets/fnCallback.png"
+                  alt=""
+                  width="100%"
+                  style="max-width: 550px"
+                />
+              </div>
+            </div>
+          </div>
+          <h3 class="mt-4">Funciones de Orden Superior</h3>
+          <p>
+            Mientras que las funciones callback se pasan como argumento de otra
+            para ser ejecutada por la función que las recibe. Las funciones de
+            orden superior son aquellas que reciben a las funciones callback.
+            <br />
+            Algo importante a tener en cuenta, es que el código escrito dentro
+            de una función trabaja todo en el mismo espacio de almacenamiento.
+            Esto significa que si una función de orden superior recibe una
+            función callback, la callback tendrá acceso a los distintos
+            elementos almacenados en la función de orden superior. Por este
+            motivo, trabajar con funciones de orden superior puede ayudarnos
+            reducir la cantidad de código que escribimos.
+            <br />
+            Las funciones de orden superior pueden retornar otras funciones.
+          </p>
+          <div class="container">
+            <div class="row row-cols-1">
+              <div class="col mb-3">
+                <img
+                  src="assets/fnSuperior1.png"
+                  alt=""
+                  width="100%"
+                  style="max-width: 650px"
+                />
+              </div>
+            </div>
+          </div>
+          <h3 class="mt-4">Funciones con efectos secundarios</h3>
+          <p>
+            Una función con efecto secundario es aquella que, como consecuencia
+            de su ejecución, modifica algún valor global (o de estado) de
+            nuestra aplicación. Cualquier cosa que no sea operar sobre sus
+            parámetros y variables locales es un efecto colateral. (modificar o
+            crear una variable global, mostrar un gráfico en pantalla, escribir
+            un fichero en el disco duro, acceder a una base de datos, etc)
+            <br />
+            Toda función que genere cualquier tipo de cambio por fuera de sí
+            misma es considerada una función con efecto secundario.
+          </p>
+          <div class="container">
+            <div class="row row-cols-1">
+              <div class="col mb-3">
+                <img
+                  src="assets/fnEfecto.png"
+                  alt=""
+                  width="100%"
+                  style="max-width: 650px"
+                />
+              </div>
+            </div>
+          </div>
+          <h3 class="mt-4">Funciones Puras</h3>
+          <p>
+            Las funciones puras no tienen ningún tipo de efecto secundario y,
+            además, son funciones que para los mismos valores de entrada siempre
+            se obtendrá el mismo valor de salida. No dependen de ningún estado
+            externo o configuración.
+          </p>
+          <div class="container">
+            <div class="row row-cols-1">
+              <div class="col mb-3">
+                <img
+                  src="assets/fnPura.png"
+                  alt=""
+                  width="100%"
+                  style="max-width: 550px"
+                />
+              </div>
+            </div>
+          </div>
+          <h3 class="mt-4">Closure</h3>
+          <p>
+            Cuando trabajamos con Funciones de Orden Superior debemos recordar
+            que todas las funciones son contenedores que tienen su propio
+            espacio de memoria y todo elemento tiene acceso al espacio de
+            memoria en que se encuentra almacenado. Es decir, si declaramos una
+            función dentro de una Función de Orden Superior, la función
+            declarada tendrá acceso a los valores almacenados en la memoria de
+            la Función de Orden Superior.
+            <br />
+            Un Closure se genera cuando una Función de Orden Superior retorna
+            otra función y la lógica de la función retornada utiliza los valores
+            almacenados en la Función de Orden Superior para hacer su trabajo
+          </p>
+          <div class="container">
+            <div class="row row-cols-1">
+              <div class="col mb-3">
+                <img
+                  src="assets/closure.png"
+                  alt=""
+                  width="100%"
+                  style="max-width: 550px"
+                />
+              </div>
+              <div class="col mb-3">
+                <img
+                  src="assets/closure1.png"
+                  alt=""
+                  width="100%"
+                  style="max-width: 650px"
+                />
+              </div>
+            </div>
+          </div>
+          <h3 class="mt-4">this</h3>
+          <p>
+            Uno de los elementos más complicados de entender a la hora de
+            trabajar con funciones en JS es el denominado Contexto de Ejecución.
+            Más adelante hablaremos en detalle de este concepto pero, una
+            primera aproximación al mismo es entender que el lugar dónde
+            ejecutamos las funciones no necesita ser el mismo en que las
+            declaramos(guardamos).
+            <br />
+            Más arriba decíamos que las funciones son contenedores que tienen su
+            propio espacio de memoria, por lo tanto podríamos pensar a las
+            funciones como "cajas" que usamos para guardar código. Pero, ¿dónde
+            guardamos las funciones?.
+            <br />
+            En este punto, es importante recordar que todo queda almacenado en
+            el Objeto window que contiene nuestro archivo js. Por lo tanto, si
+            declarado una función esta se guarda en la memoria del Objeto
+            window.
+            <br />
+            Ahora bien, cuando creamos un objeto plano en nuestro archivo js
+            también estamos creando un contenedor con un espacio de memoria
+            propio y lo estamos guardando en el Objeto window. Es decir, estamos
+            guardando una "caja objeto" en el Objeto window.
+            <br />
+            Entonces, si declaramos una función dentro del objeto que acabamos
+            de almacenar, lo que estamos haciendo es guardar la "caja función"
+            dentro de la "caja objeto". Esto quiere decir que nuestra función se
+            encuentra dentro del objeto y, como vimos anteriormente, TODO
+            ELEMENTO TIENE ACCESO AL ESPACIO DE MEMORIA QUE LO CONTIENE pero no
+            puede acceder al espacio de memoria de otros contenedores.
+            <br />
+            Llegados a este punto vamos a retomar la idea de que una función
+            puede no ser ejecutada en el espacio de memoria que la contiene y
+            para eso es que existe this.
+            <br />
+            La palabra reservada this se utiliza para indicar que una función
+            que fue declarada en el Objeto window y por tanto tiene acceso a la
+            memoria de este (y no a la memoria de otro objeto), pueda hacer uso
+            de los valores almacenados en la memoria de un objeto que no sea al
+            Objeto window.
+            <br />
+            Esta idea es aplicable para todos los objetos y/o funciones que
+            creamos en nuestro programa.
+            <br />
+            Hay que hacer una mención especial para las Arrow Function, porque
+            éstas fueron diseñadas para trabajar en el espacio de memoria que
+            contiene al elemento que las ejecuta. Por ejemplo, si creamos un
+            objeto de nombre "contenedor" este se almacena en la memoria del
+            Objeto window y, si dentro del objeto "contenedor" creamos una Arrow
+            Function ésta se almacena en el objeto "contenedor" que, a su vez,
+            está almacenado en el Objeto window. Según vimos anteriormente esto
+            implicaría que la Arrow Function puede usar los valores almacenados
+            en el objeto "contenedor" pero, dado el diseño de las mismas, en
+            realidad va a tener acceso a la memoria del elemento que contiene al
+            objeto "contenedor", es decir, el Objeto window
+          </p>
+          <div class="container">
+            <div class="row row-cols-2">
+              <div class="col mb-3">
+                <img
+                  src="assets/this.png"
+                  alt=""
+                  width="100%"
+                  style="max-width: 750px"
+                />
+              </div>
+              <div class="col mb-3">
+                <img
+                  src="assets/this1.png"
+                  alt=""
+                  width="100%"
+                  style="max-width: 550px"
+                />
+                <br />
+                <caption>
+                  this en funciones declaradas
+                </caption>
+              </div>
+            </div>
+            <div class="row row-cols-2">
+              <div class="col mb-3">
+                <img
+                  src="assets/this3.png"
+                  alt=""
+                  width="100%"
+                  style="max-width: 750px"
+                />
+              </div>
+              <div class="col mb-3">
+                <img
+                  src="assets/this2.png"
+                  alt=""
+                  width="100%"
+                  style="max-width: 550px"
+                />
+                <br />
+                <caption>
+                  this en funciones declaradas
+                </caption>
+              </div>
+            </div>
+          </div>
+          <h2 class="mt-4">Programación Funcional</h2>
+          <p>
+            La programación funcional es un paradigma de programación que
+            utiliza las funciones como piedra angular del desarrollo en lugar de
+            los objetos o las clases. Además daremos prioridad a escribir
+            funciones puras siempre que sea posible, aislando los efectos
+            secundarios y utilizando librerías o módulos para separarlos del
+            resto de la lógica.
+            <br />
+            Hay que tener en cuenta que solo con funciones puras no se puede
+            construir un programa. Sería un programa sin ningún tipo de
+            feedback, ni si quiera podríamos saber si se ha ejecutado
+            correctamente o no. Por eso es importante entender cuáles son las
+            funciones puras y cuales no.
+            <br />
+            La programación funcional es un Paradigma de Programación
+            Declarativa, es decir, que el objetivo es centrarse en describir qué
+            hacer y no en cómo hacerlo por lo que le otorgamos a nuestras
+            funciones debe describir lo mejor posible cuál es el trabajo de esa
+            función.
+            <br />
+            El Paradigma de Programación Funcional tiene 2 principios
+            fundamentales:
+          </p>
+          <ul>
+            <li>
+              <h4>Evitar mutaciones</h4>
+              <p>
+                Una función no debe cambiar ningún valor existente en nuestro
+                programa. Si necesitamos generar una modificación, en lugar de
+                eso nuestra función debe copiar el valor a modificar, generar
+                modificación correspondiente y retornar el nuevo valor que se
+                almacenará en una nueva variable para su uso posterior
+              </p>
+            </li>
+            <li>
+              <h4>Evitar efectos secundarios</h4>
+              <p>
+                una función debe ser pura, lo que significa que no tiene efectos
+                secundarios. En la programación funcional, los cambios que se
+                realizan se denominan mutaciones y los resultados se denominan
+                efectos secundarios.
+                <br />
+                Una función pura no hace ninguna de las dos. Una función pura
+                siempre tendrá la misma salida para la misma entrada.
+                <br />
+                Si una función depende de una variable global, esa variable debe
+                pasarse a la función como argumento. Esto nos permite obtener la
+                misma salida para la misma entrada.
+              </p>
+            </li>
+          </ul>
+          <div class="container">
+            <div class="row row-cols-1">
+              <div class="col mb-3">
+                <img
+                  src="assets/paradigmaFuncional.png"
+                  alt=""
+                  width="100%"
+                  style="max-width: 650px"
+                />
+              </div>
+            </div>
+          </div>
+
+          <footer class="text-end">
+            <small
+              >Información Adicional
+              <a
+                href="https://blog.softtek.com/es/programaci%C3%B3n-funcional-con-javascript-i"
+                >Paradigma Funcional 1</a
+              >
+              |
+              <a
+                href="http://juanmirod.github.io/2017/06/16/introduccion-programacion-funcional-javascript.html"
+                >Paradigma Funcional 2</a
+              >
+            </small>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- Paradigma Funcional -->
+    <script src="js/index.js"></script>
+  </body>
+</html>

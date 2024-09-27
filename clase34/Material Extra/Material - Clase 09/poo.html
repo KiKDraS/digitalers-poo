@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>JavaScript Avanzado</title>
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="d-flex" id="wrapper">
+      <!-- Sidebar-->
+      <div class="border-end bg-white" id="sidebar-wrapper">
+        <span class="sidebar-heading border-bottom bg-light"
+          >Contacto:
+          <a href="mailto:anahiforesi.educacionit@gmail.com"
+            >Anahí Foresi</a
+          ></span
+        >
+        <ul class="list-group list-group-flush">
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            href="index.html"
+            >Contexto de Ejecución</a
+          >
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            href="poo.html"
+            >Paradigma de Prototipos</a
+          >
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            href="ejercicios.html"
+            >Ejercicios</a
+          >
+        </ul>
+      </div>
+      <!-- Page content wrapper-->
+      <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        <nav
+          id="barra"
+          class="navbar navbar-expand-lg navbar-light bg-light border-bottom"
+        >
+          <div class="container-fluid">
+            <button class="btn btn-primary" id="sidebarToggle">Temas</button>
+            <h1>Clase 09</h1>
+          </div>
+        </nav>
+        <!-- Page content-->
+        <div class="container-fluid">
+          <h2 class="mt-4">Paradigma de Prototipos</h2>
+          <p>
+            JavaScript es un lenguaje de Prototipos lo que significa que al
+            implementar la Programación Orientada a Objetos no utilizamos la
+            clásica estructura de una Clase generadora de Objetos porque en
+            JavaScript no existen las Clases, sólo los Objetos y son estos los
+            que utilizamos para generar nuevos Objetos. Más precisamente, lo que
+            utilizamos es el Prototype(Objeto[[Prototype]]) que se encuentra en
+            todos y cada uno de los objetos que pertenecen a JavaScript. <br />
+            En JavaScript, para que dos objetos sean considerados "instancias"
+            de una misma "clase", sólo necesitan compartir Prototype,
+            independientemente de si esos objetos son considerados de "distinta
+            clase" en la Programación Orientada a Objetos tradicional.
+          </p>
+          <div class="container">
+            <div class="row row-cols-1 row-cols-lg-2">
+              <div class="col mb-3">
+                <img src="assets/POO.png" alt="" width="100%" />
+              </div>
+              <div class="col">
+                <img src="assets/Prototype.png" alt="" width="100%" />
+              </div>
+            </div>
+          </div>
+          <h3 class="mt-4">Prototype</h3>
+          <p>
+            El Prototype es un Objeto presente en el Objeto Object que se puede
+            "copiar" en la creación de un nuevo Objeto lo que permite que tenga
+            acceso a los elementos (métodos y propiedades) guardados en el
+            Prototype "copiado".
+            <br />
+            Cuando utilizamos un Prototype para crear un objeto, ese Prototype
+            se agrega a los otros Prototypes que afectan al objeto. Esto es lo
+            que se conoce como <b>"Cadena de Prototypes"</b> y es lo que asegura
+            que todos los objetos puedan manejar los mismos métodos y
+            propiedades que los otros objetos de su "clase", independientemente
+            de los métodos y propiedades propios de cada objeto en particular.
+            <br />
+            Algo a tener en cuenta es que cada nueva "instancia" de "clase", en
+            realidad, está copiando los distintos métodos y propiedades
+            almacenados en las distintas Funciones Constructoras. Esto puede
+            resultar en un problema importante de rendimiento, pero que se
+            soluciona utilizando la Función Constructora y asignado los métodos
+            al Prototype que de esta deriva.
+          </p>
+          <div class="container">
+            <div class="row row-cols-1 row-cols-lg-2">
+              <div class="col mb-3">
+                <img src="assets/metodoCreate.png" alt="" width="100%" />
+              </div>
+              <div class="col mb-3">
+                <img src="assets/class.png" alt="" width="100%" />
+              </div>
+              <div class="col mb-3">
+                <img src="assets/funcionConstructora.png" alt="" width="100%" />
+              </div>
+              <div class="col mb-3">
+                <img src="assets/delegacion.PNG" alt="" width="100%" />
+              </div>
+            </div>
+          </div>
+
+          <footer class="text-end">
+            <small
+              >Información Adicional
+              <a href="https://es.javascript.info/prototypes"
+                >Cadena de Prototipos</a
+              >
+            </small>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <script src="js/poo.js"></script>
+  </body>
+</html>

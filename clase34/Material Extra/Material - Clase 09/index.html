@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>JavaScript Avanzado</title>
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="d-flex" id="wrapper">
+      <!-- Sidebar-->
+      <div class="border-end bg-white" id="sidebar-wrapper">
+        <span class="sidebar-heading border-bottom bg-light"
+          >Contacto:
+          <a href="mailto:anahiforesi.educacionit@gmail.com"
+            >Anahí Foresi</a
+          ></span
+        >
+        <ul class="list-group list-group-flush">
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            href="index.html"
+            >Contexto de Ejecución</a
+          >
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            href="poo.html"
+            >Paradigma de Prototipos</a
+          >
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            href="ejercicios.html"
+            >Ejercicios</a
+          >
+        </ul>
+      </div>
+      <!-- Page content wrapper-->
+      <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        <nav
+          id="barra"
+          class="navbar navbar-expand-lg navbar-light bg-light border-bottom"
+        >
+          <div class="container-fluid">
+            <button class="btn btn-primary" id="sidebarToggle">Temas</button>
+            <h1>Clase 09</h1>
+          </div>
+        </nav>
+        <!-- Page content-->
+        <div class="container-fluid">
+          <h2 class="mt-4">Contexto de Ejecución, Funciones y this</h2>
+          <h3 class="mt-4">Contexto de Ejecución</h3>
+          <p>
+            Como ya sabemos, uno de los elementos más importantes en JavaScript
+            son las funciones y es importante entender la relación de éstas con
+            el this para seguir avanzado con el aprendizaje del lenguaje. <br />
+            Para entender el Contexto de Ejecución es necesario entender dónde
+            es llamada una función (this) y NO dónde es declarada (Scope Léxico)
+            <br />
+            Vamos a empezar por definir el Contexto de Ejecución.
+          </p>
+          <q class="fs-4 d-block">
+            El Contexto de Ejecución es el entorno léxico actual donde se está
+            ejecutando el código
+          </q>
+          <small
+            ><i
+              >Nota: entorno léxico = donde está guardada la referencia</i
+            ></small
+          >
+          <p>
+            El Contexto de Ejecución cuenta con dos fases: Creación y Ejecución
+          </p>
+          <ul>
+            <li>
+              Fase de Creación => En esta fase se crea el Objeto Global Window,
+              crea la palabra reservada this para representar al Contexto de
+              Ejecución actual y se crean los espacios de memoria para las
+              variables y las funciones declaradas (Hoisting)
+            </li>
+            <li>
+              Fase de Ejecución => En esta fase arranca el proceso de lectura,
+              interpretación y ejecución del código escrito
+            </li>
+          </ul>
+          <img
+            src="assets/code.png"
+            alt=""
+            class="w-100 m-3"
+            style="max-width: 900px"
+          />
+          <h3 class="mt-4">Funciones</h3>
+          <p>
+            En JavaScript a las funciones se las denomina "First Class Citizens"
+            porque son Objetos y, por lo tanto, todo lo que se puede hacer con
+            cualquier otro tipo de dato también se puede hacer con una función
+            (asignarlas a variables, crearlas al vuelo, etc). Pero el Object
+            Function tiene 2 claves que ninguno de los otros Objetos de JS
+            tiene, la <b>clave name</b> (nombre de la función. Puede ser
+            anónima) y la <b>clave code</b> (almacena bloque de código que
+            corresponde a la función). La existencia de estas claves permite que
+            cada vez que ejecutamos una función, ésta tenga acceso a los datos
+            que declaramos en ella independientemente del lugar en que la
+            ejecutamos. <br />
+            En otras palabras, una función tiene la capacidad de distinguir
+            dónde fue creada (Contexto Léxico) y dónde es llamada (call-site).
+            <br />
+            Al analizar el call-site de una función ejecutada dentro de otra
+            vamos a poder trazar un camino hasta el primer llamado que permite
+            la ejecución de la función actual, esta cadena es conocida como
+            call-stack.
+          </p>
+          <img
+            src="assets/contexto1.png"
+            alt=""
+            class="w-100 m-3"
+            style="max-width: 900px"
+          />
+          <h3 class="mt-4">this</h3>
+          <p>
+            this es un binding ("almacén de referencias") pensado para poder
+            manipular la interacción de las funciones con su
+            <b>contexto léxico</b> y su <b>call-site</b>. Existen 4 reglas que
+            van a determinar qué se almacenará en el this. En los momentos en
+            que más de una regla sea aplicable debemos considerar el orden de
+            precedencia (cuál es más importante) para determinar cuál aplica en
+            cada situación.
+          </p>
+          <h4 class="mb-4">
+            Reglas del this en orden ascendente de precedencia
+          </h4>
+          <ul>
+            <li>
+              <h5 class="mb-2">Default Binding</h5>
+              <p>Toda función almacena una referencia al Objeto window</p>
+              <div class="d-flex justify-content-evenly">
+                <img
+                  src="assets/this1.png"
+                  alt=""
+                  class="w-75 m-3"
+                  style="max-width: 400px"
+                />
+                <img
+                  src="assets/this4.png"
+                  alt=""
+                  class="w-75 m-3"
+                  style="max-width: 400px"
+                />
+              </div>
+            </li>
+            <li>
+              <h5 class="mb-2">Implicit Binding</h5>
+              <p>
+                Toda función almacena la referencia al Objeto que la contiene.
+                This siempre apunta al objeto que la contiene sin importar que
+                éste se encuentre almacenado en dentro de otro
+              </p>
+              <div class="d-flex justify-content-evenly">
+                <img
+                  src="assets/this2.png"
+                  alt=""
+                  class="w-75 m-3"
+                  style="max-width: 400px"
+                />
+                <img
+                  src="assets/this3.png"
+                  alt=""
+                  class="w-75 m-3"
+                  style="max-width: 400px"
+                />
+              </div>
+              <ul>
+                <li>
+                  <h5 class="mb-2">Perder binding implícito</h5>
+                  <p>
+                    Uno de los errores más comunes con el implicit binding
+                    ocurre pasamos una función callback esperando que se ejecute
+                    según su almacenamiento sin tener en cuenta dónde fue creada
+                    la función y su call-site. <br />
+                    El this de una función creada en el Objeto window, por
+                    defecto, es el Objeto window.
+                    <br />
+                    Si almacenamos la referencia dentro de un Objeto, se
+                    modifica el valor del this para apuntar al Objeto que
+                    contiene la referencia.
+                    <br />
+                    Hay que tener en cuenta que todas las funciones son Objetos
+                    por lo que si se pasa la clave del Objeto que almacena la
+                    referencia a la función como Función Callback lo que estamos
+                    haciendo es almacenar una nueva referencia en el Objeto
+                    Función actual por lo que el this ya no apunta al Objeto
+                    anterior sino que apunta al call-site de la función que
+                    recibe la callback. (El call-site de la función callback es
+                    la función que la contiene)
+                  </p>
+                  <div class="d-flex justify-content-evenly">
+                    <img
+                      src="assets/this5.png"
+                      alt=""
+                      class="w-75 m-3"
+                      style="max-width: 400px"
+                    />
+                    <img
+                      src="assets/this6.png"
+                      alt=""
+                      class="w-75 m-3"
+                      style="max-width: 400px"
+                    />
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <h5 class="mb-2">Explicit Binding</h5>
+              <p>
+                Un Explicit Binding implica forzar la ejecución de una función
+                en un contexto particular sin la necesidad de almacenarla en el
+                mismo
+              </p>
+              <div class="d-flex justify-content-evenly">
+                <img
+                  src="assets/this7.png"
+                  alt=""
+                  class="w-75 m-3"
+                  style="max-width: 400px"
+                />
+              </div>
+              <ul>
+                <li>
+                  <h5 class="mb-2">Hard Binding</h5>
+                  <p>
+                    Es un patrón que utiliza el Explicit Binding para evitar que
+                    las funciones callback "pierdan" el this.
+                  </p>
+                  <div class="d-flex justify-content-evenly">
+                    <img
+                      src="assets/this8.png"
+                      alt=""
+                      class="w-75 m-3"
+                      style="max-width: 400px"
+                    />
+                    <img
+                      src="assets/this9.png"
+                      alt=""
+                      class="w-75 m-3"
+                      style="max-width: 400px"
+                    />
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <h5 class="mb-2">new Binding</h5>
+              <p>
+                La palabra reservada new en JS sirve para crear un nuevo Objeto
+                con su correspondiente Contexto de Ejecución. En JS las
+                funciones son Objetos y, por tanto, pueden ser creadas usando la
+                palabra reservada new lo que, como consecuencia, vincula el this
+                de la función con su propio Scope (en esencia se crea un Hard
+                Binding) por lo que el this hará referencia a la función en sí
+                misma
+              </p>
+              <div class="d-flex justify-content-evenly">
+                <img
+                  src="assets/this10.png"
+                  alt=""
+                  class="w-75 m-3"
+                  style="max-width: 400px"
+                />
+              </div>
+            </li>
+            <li>
+              <h5 class="mb-2">Lexical this (Arrow Function)</h5>
+              <p>
+                A diferencia de las funciones declaradas usando la palabra
+                function, las arrow function vinculan su this al Scope Léxico en
+                que fueron declaradas (dónde se encuentra almacenada la
+                referencia)
+              </p>
+              <div class="d-flex justify-content-evenly">
+                <img
+                  src="assets/this11.png"
+                  alt=""
+                  class="w-75 m-3"
+                  style="max-width: 500px"
+                />
+              </div>
+              <ul>
+                <li>
+                  <h5 class="mb-2">Ejemplo de uso en Funciones Callback</h5>
+                  <div class="d-flex justify-content-evenly">
+                    <img
+                      src="assets/this12.png"
+                      alt=""
+                      class="w-75 m-3"
+                      style="max-width: 450px"
+                    />
+                  </div>
+                </li>
+                <li>
+                  <h5 class="mb-2">Mismo trabajo sin Arrow Function</h5>
+                  <div class="d-flex justify-content-evenly">
+                    <img
+                      src="assets/this13.png"
+                      alt=""
+                      class="w-75 m-3"
+                      style="max-width: 450px"
+                    />
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h4 class="mt-4">Métodos para hacer un Binding Explícito</h4>
+          <ul>
+            <li>
+              .bind(contexto) - Crea una copia de la función pero en lugar de
+              usar el Contexto de Ejecución original, usa el contexto pasado
+            </li>
+            <li>
+              .call(contexto, argumentoFuncion1, argumentoFuncion2) - Ejecuta la
+              función asignandole el Contexto de Ejecución pasado
+            </li>
+            <li>
+              .apply(contexto, [argumentosFuncion]) - Idem .call() pero recibe
+              todos los argumentos necesarios en un array
+            </li>
+          </ul>
+          <div class="container">
+            <div class="row row-cols-1">
+              <div class="col mb-3">
+                <img
+                  src="assets/bind.png"
+                  alt=""
+                  width="100%"
+                  style="max-width: 550px"
+                />
+              </div>
+              <div class="col mb-3">
+                <img
+                  src="assets/call.png"
+                  alt=""
+                  width="100%"
+                  style="max-width: 550px"
+                />
+              </div>
+              <div class="col mb-3">
+                <img
+                  src="assets/apply.png"
+                  alt=""
+                  width="100%"
+                  style="max-width: 550px"
+                />
+              </div>
+            </div>
+          </div>
+          <h2 class="mt-4">Closure</h2>
+          <p>
+            Dada la naturaleza de las funciones en JS, es posible que una
+            función retorne otra. La función retornada, al haber sido creada en
+            la primera, tiene acceso a la memoria de la misma por lo que, sin
+            importar dónde estemos ejecutando la función retornada, ésta tendrá
+            acceso a los valores de la función que la crea.
+            <br />
+            Una función cuyo trabajo es crear y retornar otra que tendrá acceso
+            los valores almacenados dentro suyo es conocida como Closure.
+          </p>
+          <div class="container">
+            <div class="row">
+              <div class="col mb-3">
+                <img
+                  src="assets/closure.PNG"
+                  alt=""
+                  width="100%"
+                  style="max-width: 550px"
+                />
+              </div>
+            </div>
+          </div>
+          <h2 class="mt-4">Ejemplos</h2>
+          <h3 class="mt-4">Hard Binding</h3>
+          <div class="hard"></div>
+
+          <h3 class="mt-4">new Binding</h3>
+          <div class="new"></div>
+
+          <h3 class="mt-4">Arrow Function</h3>
+          <div class="arrow"></div>
+
+          <footer class="text-end">
+            <small
+              >Información Adicional
+              <a
+                href="https://www.freecodecamp.org/espanol/news/contexto-de-ejecucion-de-javascript-y-hoisting-explicados-con-ejemplos-de-codigo/"
+                >Contexto de Ejecución</a
+              >
+              |
+              <a
+                href="https://www.freecodecamp.org/espanol/news/la-palabra-clave-this-5-reglas-de-vinculacion-de-teclas-explicadas-para-principiantes-de-javascript/"
+                >this</a
+              >
+            </small>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- Contexto de Ejecución -->
+    <script src="js/index.js"></script>
+    <script src="js/ejemplos.js"></script>
+  </body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>JavaScript Avanzado</title>
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="d-flex" id="wrapper">
+      <!-- Sidebar-->
+      <div class="border-end bg-white" id="sidebar-wrapper">
+        <span class="sidebar-heading border-bottom bg-light"
+          >Contacto:
+          <a href="mailto:anahiforesi.educacionit@gmail.com"
+            >Anahí Foresi</a
+          ></span
+        >
+        <ul class="list-group list-group-flush">
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            href="index.html"
+            >Paradigma Funcional</a
+          >
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            href="reactiva.html"
+            >Programación Reactiva</a
+          >
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            href="ejercicios.html"
+            >Ejercicios</a
+          >
+        </ul>
+      </div>
+      <!-- Page content wrapper-->
+      <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        <nav
+          id="barra"
+          class="navbar navbar-expand-lg navbar-light bg-light border-bottom"
+        >
+          <div class="container-fluid">
+            <button class="btn btn-primary" id="sidebarToggle">Temas</button>
+            <h1>Clase 08</h1>
+          </div>
+        </nav>
+        <!-- Page content-->
+        <div class="container-fluid">
+          <h2 class="mt-4">Programación Reactiva</h2>
+          <p>
+            La programación reactiva es un paradigma de programación basado en
+            la gestión de flujos de datos asíncronos (streams) y en la
+            propagación del cambio.
+            <br />
+            En front-end, la programación reactiva nos permite modificar la
+            pantalla que el usuario está visualizando en base al valor actual
+            observado.
+            <br />
+            La programación reactiva está basada en la programación funcional y
+            utiliza los patrones Iterador y Observer.
+          </p>
+          <h3 class="mt-4">Patrón Observer</h3>
+          <p>
+            El patrón Observer es muy importante en el concepto de programación
+            reactiva ya que explica perfectamente cómo funciona. Según este
+            patrón, hay un sujeto que es el productor de la información (stream)
+            y por otro lado hay uno o varios consumidores de esta información.
+            <br />
+            Trabajar con el Patrón Observer implica la creación de un objeto que
+            almacena valores y funciones que reciben callbacks pensadas para que
+            al momento de que cambien los valores almacenados, las funciones
+            ejecuten sus callbacks. De esta forma, las funciones reaccionan a
+            los cambios.
+          </p>
+          <div class="container">
+            <div class="row row-cols-1">
+              <div class="col mb-3">
+                <img
+                  src="assets/observable.png"
+                  alt=""
+                  width="100%"
+                  style="max-width: 650px"
+                />
+              </div>
+              <div class="col mb-3">
+                <img
+                  src="assets/observador.png"
+                  alt=""
+                  width="100%"
+                  style="max-width: 650px"
+                />
+              </div>
+            </div>
+          </div>
+          <h3 class="mt-4">Patrón Iterador</h3>
+          <p>
+            El patrón iterador nos permite está pensado para que podamos
+            almacenar Arrays y recorrerlos sin exponer sus valores a elementos
+            externos para asegurar que, una vez creado, no se realizan
+            modificaciones indeseadas. Trabajar con este patrón, además, reduce
+            significativamente la cantidad de bucles utilizados en nuestro
+            código porque los métodos del iterador están pensados para recorrer
+            el Array sin necesidad de un for. Opcionalmente, es posible agregar
+            un métodos .each/.map/.filter para recorrer el Array contenido con
+            un bucle. Este tipo de métodos se suele agregar cuando deseamos
+            permitir transformaciones al Array original
+            <br />
+            Un iterador es el objeto que se crea para almacenar el Array y los
+            métodos que se usarán para recorrerlo.
+          </p>
+          <h4 class="mt-4">Métodos que deben tener un Iterador:</h4>
+          <ul>
+            <li>
+              first() -> Retorna siempre el primer elemento del Array. Método
+              obligatorio
+            </li>
+            <li>
+              next() -> Retorna el siguiente elemento en el Array. Este método
+              suele retornar un objeto con las claves value (almacena el valor
+              retornado) y done (almacena un booleano que indica que existe un
+              elemento después del retornado). Este método es obligatorio
+            </li>
+            <li>
+              current() -> Retorna el elemento actual del Array. Método
+              obligatorio.
+            </li>
+            <li>
+              hasNext() -> Retorna un booleano para saber si hay más elementos
+              dentro del Array. Método opcional
+            </li>
+            <li>
+              reset() -> Retorna la iteración al inicio del Array. Método
+              opcional
+            </li>
+          </ul>
+          <div class="container">
+            <div class="row row-cols-1">
+              <div class="col mb-3">
+                <img
+                  src="assets/iterable.png"
+                  alt=""
+                  width="100%"
+                  style="max-width: 650px"
+                />
+              </div>
+            </div>
+          </div>
+          <h2 class="mt-4">Ejemplo Programación Reactiva</h2>
+          <section id="reactiva"></section>
+
+          <footer class="text-end">
+            <small
+              >Información Adicional
+              <a href="https://jonmircha.com/reactividad-javascript"
+                >Programación Reactiva</a
+              >
+            </small>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- Programación Reactiva -->
+    <script src="js/programacionReactiva.js"></script>
+  </body>
+</html>

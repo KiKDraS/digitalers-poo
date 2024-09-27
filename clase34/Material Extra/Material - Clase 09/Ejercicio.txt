@@ -1,0 +1,28 @@
+Ejercicios resueltos en archivo ejercicios.js
+
+/*
+  Crear funciones que usen los valores de un array para retornar los valores modificados.
+    => Las funciones NO DEBEN recibir el array como argumento
+    => Debe ser posible utilizarlas para leer un array almacenado dentro de un objeto
+    => Deben recibir una función callback para indicar cómo se deben modificar los valores originales
+    => Acciones a ejecutarse
+      => Alterar los valores almacenados
+      => Filtrar el valor especificado
+      => Encontrar el valor especificado. Debe retornar el valor encontrado no un array (puede no recibir una función callback)
+    => Los valores devueltos deben quedar almacenados en el objeto que contiene el array original. 
+    => Mostrar los resultados en pantalla  
+*/
+
+
+
+/*
+  Usando el binding new de las funciones crear 2 objetos a partir de la ejecución de las 2 funciones. Las funciones deben tener los nombres "MostrarArray" y "AgregarDatos".
+    => El objeto creado con la función "MostrarArray" de tener:
+      -> 1 Array recibido por parámetro
+      -> 1 función "add" para agregar valores al Array
+      -> 1 función "render" que debe retornar la vista de los elementos almacenados en el Array
+    => El objeto creado con la función "AgregarDatos"
+      -> 1 función "render" que debe retornar la vista de un formulario que tenga un input para que el usuario pueda ingresar un valor.
+    -> 1 función "handleSubmit" que se ejecute como callback del evento submit y ejecute la función "add" generada en "MostrarArray" en para usar los datos del input como argumentos de la ejecución de la misma;
+    => Fundamental mantener actualizada la vista con los valores en el Array
+*/
